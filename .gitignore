@@ -1,0 +1,34 @@
+# environment variables
+.env
+*.env
+
+# vector database (ChromaDB)
+chroma/
+chroma_*/
+
+# system files
+.DS_Store
+
+# Streamlit secrets (VERY IMPORTANT)
+.streamlit/secrets.toml
+
+# upload rate-limit log (contains visitor IP addresses)
+upload_log.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# logs
+*.log
+
+# OS files (Windows)
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# debug utilities
+inspect_db.py
