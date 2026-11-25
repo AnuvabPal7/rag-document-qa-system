@@ -15,7 +15,7 @@ A Retrieval-Augmented Generation (RAG) system that answers questions from custom
   - **Preloaded mode** — semantic search over a personal knowledge base (Technical / HR / CV), with category-based filtering
   - **Upload mode** — upload your own PDF, DOCX, TXT, CSV, or MD file and ask questions about it, in an isolated per-session vector store
 - HuggingFace sentence embeddings (free, runs locally, CPU-only)
-- Fast LLM responses via Groq API (Llama 3.1 8B / Llama 3.3 70B)
+- Fast LLM responses via Groq API (GPT-OSS 20B / GPT-OSS 120B)
 - Q&A-block-based chunking for the preloaded knowledge base — each question/answer pair stays intact as a single retrievable unit
 - Source chunk display with relevance scores
 - Response caching (`st.cache_resource` / `st.cache_data`) — the vector DB connection and embedding model load once per process, and repeated identical questions skip the Groq API call
@@ -33,7 +33,7 @@ A Retrieval-Augmented Generation (RAG) system that answers questions from custom
 | Frontend | Streamlit |
 | Vector Database | ChromaDB (persisted for preloaded mode, in-memory for uploads) |
 | Embeddings | HuggingFace (all-MiniLM-L6-v2), CPU-only |
-| LLM | Groq API (Llama 3.1 8B / Llama 3.3 70B) |
+| LLM | Groq API (GPT-OSS 20B / GPT-OSS 120B) |
 | Framework | LangChain |
 | Deployment | Docker on Render |
 | Language | Python |
