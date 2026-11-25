@@ -8,7 +8,12 @@ from query_data import (
 st.set_page_config(page_title="RAG Document Q&A", page_icon="📄", layout="centered")
 
 st.title("📄 RAG Document Q&A System")
-st.caption("Ask questions across Technical, HR, and CV documents — powered by Groq (Llama 3)")
+st.caption("Ask questions across Technical, HR, and CV documents — powered by Groq")
+
+MODEL_LABELS = {
+    "openai/gpt-oss-120b": "GPT-OSS 120B (best quality)",
+    "openai/gpt-oss-20b": "GPT-OSS 20B (faster)",
+}
 
 
 def get_client_ip():
@@ -36,7 +41,11 @@ with st.sidebar:
             options=["all", "technical", "hr", "cv"],
             format_func=lambda x: x.upper() if x != "all" else "All Categories"
         )
-    model = st.selectbox("LLM model", options=["llama-3.1-8b-instant", "llama-3.3-70b-versatile"])
+    model = st.selectbox(
+        "LLM model",
+        options=list(MODEL_LABELS.keys()),
+        format_func=lambda m: MODEL_LABELS[m],
+    )
     st.markdown("---")
     st.markdown("Built with LangChain + Chroma + Groq")
 

@@ -93,7 +93,7 @@ _INTRO_QUERY_ALIASES = [
 ]
 
 
-def answer_question(query, category=None, model="llama-3.1-8b-instant"):
+def answer_question(query, category=None, model="openai/gpt-oss-20b"):
     normalized = query.strip().lower()
 
     if category == "cv" and normalized in _INTRO_QUERY_ALIASES:
@@ -197,7 +197,7 @@ Answer:
 """
 
 
-def answer_question_from_upload(vectorstore, query, model="llama-3.1-8b-instant"):
+def answer_question_from_upload(vectorstore, query, model="openai/gpt-oss-20b"):
     context, score, sources = get_relevant_context_from_store(vectorstore, query)
 
     if context is None:
@@ -251,7 +251,7 @@ def check_and_record_upload(ip_address):
 
 # ---------- Groq call ----------
 
-def get_groq_response(prompt, model="llama-3.1-8b-instant"):
+def get_groq_response(prompt, model="openai/gpt-oss-20b"):
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         try:
